@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+import { Canvas } from "@react-three/fiber";
+
+import Box from "./box";
+import { OrbitControls } from "@react-three/drei";
+import CoinMesh from "./mesh";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Canvas>
+        {/* 회전 */}
+        <OrbitControls />
+        {/* 색 */}
+        <ambientLight intensity={0.5} />
+
+        <CoinMesh />
+      </Canvas>
     </div>
   );
 }
